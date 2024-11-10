@@ -1,25 +1,21 @@
-import { sanityFetch } from "@/sanity/lib/live";
-import { POST_QUERY } from "@/sanity/lib/queries";
-import { notFound } from "next/navigation";
-import { Post } from "@/components/post";
+import { client } from "@/sanity/lib/client";
+import { POSTS_QUERY } from "@/sanity/lib/queries";
+import { PostCard } from "@/components/post-card";
+import { Title } from "@/components/title";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { data: post } = await sanityFetch({
-    query: POST_QUERY,
-    params: await params,
-  });
+const options = { next: { revalidate: 60 } };
 
-  if (!post) {
-    notFound();
-  }
+export default async function Page() {
+  const posts = await client.fetch(POSTS_QUERY, {}, options);
 
   return (
     <main className="container mx-auto grid grid-cols-1 gap-6 p-12">
-      <Post {...post} />
+      <Title>Post Index</Title>
+      <div className="flex flex-col gap-24 py-12">
+        {posts.map((post) => (
+          <PostCard key={post._id} {...post} />
+        ))}
+      </div>
     </main>
   );
 }
