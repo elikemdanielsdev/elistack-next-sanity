@@ -5,6 +5,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
+import { components } from "@/sanity/portableTextComponents";
+
 export default async function Page({
   params,
 }: {
@@ -39,7 +41,7 @@ export default async function Page({
 
       {post?.body ? (
         <div className="prose">
-          <PortableText value={post?.body} />
+          <PortableText value={post?.body} components={components} />
         </div>
       ) : null}
       <hr />
