@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { POST_QUERY } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
 export default async function Page({
@@ -35,6 +36,12 @@ export default async function Page({
         />
       ) : null}
       <h1 className="text-balance text-4xl font-bold">{post?.title}</h1>
+
+      {post?.body ? (
+        <div className="prose">
+          <PortableText value={post?.body} />
+        </div>
+      ) : null}
       <hr />
       <Link href="/posts">&larr; Return to index</Link>
     </main>
