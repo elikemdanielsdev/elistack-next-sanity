@@ -14,7 +14,14 @@ export default async function Page({
   });
 
   if (!post) {
-    notFound();
+    // notFound();
+    return (
+      <main className="container mx-auto grid grid-cols-1 gap-6 p-12">
+        <h1 className="text-4xl font-bold text-balance">Post not found</h1>
+        <hr />
+        <Link href="/posts">&larr; Return to index</Link>
+      </main>
+    );
   }
 
   return (
