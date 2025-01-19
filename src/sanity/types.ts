@@ -109,7 +109,7 @@ export type Post = {
       _type: "span";
       _key: string;
     }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    style?: "normal" | "h2" | "h3" | "h4" | "blockquote";
     listItem?: "bullet";
     markDefs?: Array<{
       href?: string;
@@ -197,7 +197,7 @@ export type BlockContent = Array<{
     _type: "span";
     _key: string;
   }>;
-  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+  style?: "normal" | "h2" | "h3" | "h4" | "blockquote";
   listItem?: "bullet";
   markDefs?: Array<{
     href?: string;
@@ -299,7 +299,7 @@ export type POST_QUERYResult = {
       _type: "span";
       _key: string;
     }>;
-    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
     listItem?: "bullet";
     markDefs?: Array<{
       href?: string;

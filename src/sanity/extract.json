@@ -593,10 +593,6 @@
                         },
                         {
                           "type": "string",
-                          "value": "h1"
-                        },
-                        {
-                          "type": "string",
                           "value": "h2"
                         },
                         {
@@ -1186,10 +1182,6 @@
                     {
                       "type": "string",
                       "value": "normal"
-                    },
-                    {
-                      "type": "string",
-                      "value": "h1"
                     },
                     {
                       "type": "string",
